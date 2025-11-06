@@ -7,7 +7,25 @@
 }
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;background:#fff;color:var(--dark)}
-.page-wrap{max-width:var(--container);margin:28px auto;padding:34px;border:2px solid #111;border-radius:48px;position:relative}
+/* Unified page container — same for Home & Bio */
+.page-wrap{
+  /* size & spacing */
+  width: 88%;
+  max-width: 1200px;       
+  margin: 60px auto;       
+  padding: 40px 60px;      
+
+  /* border & radius */
+  border: 2px solid #111;
+  border-radius: 28px;    
+
+  /* layout */
+  position: relative;
+  box-sizing: border-box;
+  background: #fff;
+  overflow: visible;
+}
+
 .rounded-frame{border-radius:64px}
 
 /* header */
@@ -34,7 +52,7 @@ html,body{height:100%;margin:0;background:#fff;color:var(--dark)}
 .ajiet-btn{background:#000;color:#fff;padding:10px 18px;border-radius:22px;font-weight:700}
 
 /* layout grid */
-.large-hero .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;padding-top:6px}
+/*.large-hero .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;padding-top:6px}*/
 .hero-left{position:relative;padding-right:18px}
 
 /* greeting */
@@ -88,8 +106,8 @@ html,body{height:100%;margin:0;background:#fff;color:var(--dark)}
 .arrow-wrap {
   position: absolute;
   right: 10px;       /* adjust horizontal position */
-  bottom: 80px;       /* adjust vertical position under 'love.' */
-  width: 300px;       /* controls arrow image size */
+  bottom: 30px;       /* adjust vertical position under 'love.' */
+  width: 400px;       /* controls arrow image size */
   height: auto;
   z-index: 2;
 }
@@ -206,3 +224,56 @@ html,body{height:100%;margin:0;background:#fff;color:var(--dark)}
   margin: 60px auto;        /* keeps it centered */
   display: block;
 }
+
+/*.home-page {border: 2px solid #000;             
+border-radius: 28px;               
+  margin: 60px auto;                  
+  padding: 40px 60px;                 
+  max-width: 1200px;                 
+  box-sizing: border-box;
+  background: #fff;
+}*/
+
+/* ===== Force Home page border to match Bio-data page =====
+   Paste this at the *end* of assets/css/styles.css (after everything).
+   This will override older rules and ensure exact matching. */
+/*.page-wrap.home-page {
+  width: 88% !important;   
+  max-width: 1200px !important; 
+  margin: 60px auto !important; 
+  padding: 40px 60px !important;
+  border: 2px solid #111 !important;
+  border-radius: 28px !important;
+  box-sizing: border-box !important;
+  background: #fff !important;
+  overflow: visible !important;
+}*/
+
+/* make sure the rounded-frame shape is preserved */
+.rounded-frame {
+  border-radius: 28px !important;
+}
+
+/* ensure nav overlap remains the same as biodata */
+.bottom-nav {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: -34px !important;
+  z-index: 20 !important;
+}
+
+/* make Home use the same border as Bio */
+.home-page,
+.page-wrap.biodata-page {
+  border: 2px solid #111 !important;
+  border-radius: 28px !important;
+  max-width: 1200px !important;
+  width: 88% !important;
+  margin: 60px auto !important;
+  padding: 40px 60px !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+}
+
+
