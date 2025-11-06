@@ -5,198 +5,254 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ArchPortpoliyo — Resume</title>
 
-  <!-- fonts (same as other pages) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Space+Mono&display=swap" rel="stylesheet">
-  <!-- global stylesheet (keeps nav styling unchanged) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800;900&family=Space+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- Scoped resume styles (won't modify global nav) -->
   <style>
-    /* Scoped to resume page container */
-    #resume-content { font-family: 'Montserrat', system-ui, sans-serif; color: #111; }
+    /* Page-level styles (resume) — safe to replace, won't touch global file */
+    :root{
+      --accent:#c64037;
+      --muted:#e9e9e9;
+      --card-bg:#fff;
 
-    /* grid layout */
-    #resume-content .inner {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 36px;
-      align-items: start;
+      /* speech bubble position (easy tweak) */
+      --bubble-left: 24px;  /* change this value (px, %, calc(...)) to move bubble horizontally */
+      --bubble-top: 260px;  /* change this value to move bubble vertically */
     }
 
-    /* left column */
-    .profile {
-      text-align: left;
+    body{
+      font-family:Montserrat,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      margin:0;
+      background:#fff;
+      color:#111;
     }
-    .profile .avatar {
-      width: 220px;
-      height: 220px;
-      border-radius: 18px;
-      object-fit: cover;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      border: 6px solid #fff;
-    }
-    .profile h1 {
-      font-size: 22px;
-      margin: 18px 0 6px;
-      letter-spacing: 1px;
-    }
-    .profile .sub {
-      color: #7c7c7c;
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
-    .profile .contact {
-      margin-top: 18px;
-      font-size: 14px;
-      color: #555;
-    }
-    .profile .contact div { margin: 10px 0; display:flex; gap:10px; align-items:center; }
 
-    /* right column cards */
-    .card {
-      border: 2px solid rgba(0,0,0,0.06);
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 22px;
+    /* BIG rounded outer landscape border */
+    .page-wrap{
+      width: min(1500px, 96%);
+      margin: 28px auto;
+      padding: 36px 56px;
+      border-radius: 60px;                 /* larger radius for landscape look */
+      border: 3px solid #111;
+      position: relative;
+      box-sizing: border-box;
       background: #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-    }
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      letter-spacing: .3px;
-    }
-    .muted { color:#6f6f6f; font-size: 15px; line-height:1.6; }
-
-    /* skills badges */
-    .skills { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
-    .skill {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      background: rgba(197,64,55,0.07);
-      border-radius:18px;
-      color:#c64037;
-      font-weight:700;
-      font-size:14px;
+      overflow: visible;
     }
 
-    /* projects / bullets */
-    ul.project-list { margin:10px 0 0 18px; color:#333; }
-    ul.project-list li { margin-bottom:8px; }
+    /* inner layout: two columns — left narrow portrait, right content */
+    .resume-grid{
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap: 42px;
+      align-items:start;
+    }
 
-    /* smaller screens */
-    @media (max-width: 880px) {
-      #resume-content .inner { grid-template-columns: 1fr; }
-      .profile { text-align: center; }
-      .profile .avatar { margin: 0 auto; }
-      .profile h1 { text-align:center; }
+    /* left column: portrait + utilities */
+    .portrait-wrap{
+      position: relative; /* for absolutely-positioned speech bubble */
+      padding-bottom: 10px;
+    }
+
+    .portrait{
+      width: 380px;
+      height: 560px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.06);
+      border: 8px solid #fff;
+      background: #f7f7f7;
+    }
+    .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* speech bubble — position controlled by CSS variables above */
+    .speech-bubble{
+      position: absolute;
+      left: var(--bubble-left);
+      top: var(--bubble-top);
+      transform: translateY(-50%);
+      background:#fff;
+      border:2px solid #ddd;
+      padding:10px 18px;
+      border-radius:28px;
+      font-weight:800;
+      display:inline-block;
+      font-size:13px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .contact-row{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+    .contact-pill{border-radius:28px;padding:12px 18px;border:2px solid var(--muted);background:#fff;font-weight:700;font-size:14px}
+    .contact-pill.accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .left-buttons{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .left-btn{border-radius:26px;padding:12px 26px;background:var(--accent);color:#fff;border:none;font-weight:800;box-shadow:inset 0 -8px 0 rgba(0,0,0,0.08);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .left-btn.ghost{background:#fff;color:#111;border:2px solid #ddd;box-shadow:none}
+
+    /* right column */
+    .title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+    .big-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:58px;margin:0;line-height:0.9;letter-spacing:2px}
+    .subtitle{color:#777;font-weight:600;margin-top:8px;font-size:14px}
+    .ajiet-pill{border-radius:14px;padding:10px 16px;border:2px solid #ddd;background:#fff;font-weight:800}
+    .social-stack{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+    .social-pill{border-radius:18px;padding:8px 14px;border:2px solid #cfcfcf;background:#fff;font-weight:700;min-width:240px;text-align:center;font-size:13px}
+
+    /* cards */
+    .card{border-radius:12px;padding:16px;border:2px solid #eee;background:var(--card-bg);margin-bottom:18px;box-shadow:0 8px 18px rgba(0,0,0,0.03)}
+    .card .pill{display:inline-block;background:var(--accent);color:#fff;padding:6px 12px;border-radius:20px;font-weight:800;font-size:13px;margin-bottom:10px}
+    .edu-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .edu-box{border-radius:12px;padding:12px;border:2px solid #eaeaea;min-width:170px;background:#fff;position:relative}
+    .edu-box .year{position:absolute;right:10px;top:10px;background:#000;color:#fff;padding:6px 9px;border-radius:14px;font-weight:800;font-size:12px}
+
+    .skill-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .skill{border-radius:20px;padding:8px 12px;border:1px solid #ddd;background:#f6f6f6;font-weight:700;font-size:13px}
+
+    .cert-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .cert{border:2px solid #e9e9e9;border-radius:12px;padding:12px 14px;min-width:200px;background:#fff}
+
+    .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:6px;border-top:1px solid #f0f0f0;color:#666}
+
+    /* bottom landscape nav (centered pill) — included for parity with other pages */
+    .bottom-nav-wrap{display:flex;justify-content:center;padding:36px 0 18px}
+    .bottom-pill{width:88%;max-width:1100px;height:72px;background:linear-gradient(180deg,var(--accent),#c64a37);border-radius:40px;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 0 rgba(0,0,0,0.06);padding:12px;position:relative}
+    .nav-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-weight:800;border-radius:28px;padding:12px 48px;transition:transform .12s, box-shadow .12s;position:relative;margin:0 30px}
+    .nav-btn span{display:inline-block;padding:12px 36px;border-radius:28px;background:transparent;color:#fff}
+    .nav-btn.active{box-shadow:none}
+    .nav-btn.active span{background:#fff;color:var(--accent);box-shadow:inset 0 6px 0 rgba(0,0,0,0.06);}
+
+    /* responsive adjustments for smaller screens */
+    @media (max-width:1180px){
+      .page-wrap{padding:18px; border-radius:36px}
+      .resume-grid{grid-template-columns:1fr;gap:22px}
+      .portrait{width:260px;height:380px;margin:0 auto}
+      .title-row{flex-direction:column;align-items:center}
+      .big-title{font-size:46px;text-align:center}
+      .social-stack{align-items:center}
+      .bottom-pill{width:92%}
+      .speech-bubble{left: 50%; transform: translate(-50%,-50%); top: calc(100% - 20px); position: relative}
     }
   </style>
 </head>
 <body>
-  <div class="page-wrap rounded-frame biodata-page">
-    <!-- header (keeps your crafted/ajiet area) -->
-    <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <img src="images/pen.png" width="36" height="36" style="border-radius:50%" alt="pen">
-        <div style="font-weight:700;letter-spacing:.6px">CRAFTED BY <strong>VINYAS</strong></div>
-      </div>
-      <div style="background:#000;color:#fff;padding:10px 18px;border-radius:24px;font-weight:700">AJIET</div>
-    </header>
-
-    <!-- RESUME CONTENT -->
-    <section id="resume-content">
-      <div class="inner">
-        <!-- LEFT -->
-        <aside class="profile">
-          <img src="images/profile.jpg" class="avatar" alt="Vinyas profile">
-          <h1>Vin​yas A S</h1>
-          <div class="sub">Front-end developer / App dev | Mangalore</div>
-
-          <div class="card" style="margin-top:18px">
-            <h3>Contact ✉️</h3>
-            <div class="contact">
-              <div>📧 <span style="color:#111;font-weight:600">vinyas1397@gmail.com</span></div>
-              <div>📞 <span style="color:#111;font-weight:600">+91 74835 36650</span></div>
-              <div>📍 <span>Subrahmanya, Noochila</span></div>
-            </div>
+  <div class="page-wrap">
+    <div class="resume-grid">
+      <!-- LEFT COLUMN -->
+      <div>
+        <div class="portrait-wrap">
+          <div class="portrait">
+            <img src="images/profile.jpg" alt="profile">
           </div>
 
-          <div class="card">
-            <h3>Technical Skills ⚙️</h3>
-            <div class="skills">
-              <span class="skill">Java</span>
-              <span class="skill">Kotlin</span>
-              <span class="skill">Python</span>
-              <span class="skill">C</span>
-              <span class="skill">App Dev</span>
-            </div>
-          </div>
+          <!-- speech bubble: position controlled by CSS variables at :root above -->
+          <div class="speech-bubble">YOU'RE IN MY <strong>RESUME</strong></div>
+        </div>
 
-          <div class="card">
-            <h3>Certifications 🎓</h3>
-            <div class="muted">
-              • Cybersecurity Analyst — eyeqdotnet<br>
-              • Bonda Seller — mfc bonda mart<br>
-              • Local project — infosyssss
-            </div>
-          </div>
-        </aside>
+        <div class="contact-row">
+          <div class="contact-pill">vinyas1397@gmail.com</div>
+          <div class="contact-pill accent">+91 7483536650</div>
+          <div class="contact-pill">Subrahmanya, Noochila</div>
+        </div>
 
-        <!-- RIGHT -->
-        <div>
-          <div class="card">
-            <h3>Career Objective 🎯</h3>
-            <p class="muted">Front-end development to contribute to an innovative and collaborative team. Passionate about creating accessible digital experiences that solve real-world problems.</p>
-          </div>
-
-          <div class="card">
-            <h3>Experience 💼</h3>
-            <div style="font-weight:700">Junior Developer — Company</div>
-            <div class="muted" style="margin:8px 0 12px">Jan 2023 — Present</div>
-            <ul class="project-list">
-              <li>Worked on feature X, Y and Z (performance improvements, UI components)</li>
-              <li>Built internal tools for faster release cycles</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Education 🎓</h3>
-            <div class="muted">
-              SSLC — Subrahmanyah School (2019) <br>
-              Diploma — KPT College (2024) <br>
-              B.E — Ajiet college (Pursuing)
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Projects 🚀</h3>
-            <ul class="project-list">
-              <li><strong>KasaPe</strong> — Government project</li>
-              <li><strong>DoseMaker</strong> — hospitality app</li>
-              <li><strong>Sudeep Sticker Maker</strong> — community project</li>
-            </ul>
-          </div>
-
-          <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
-            <div style="color:#777">© ArchPortpoliyo — Resume</div>
-            <div><button onclick="window.print()" style="background:#eee;border:1px solid #ccc;padding:8px 12px;border-radius:6px;cursor:pointer">Download / Print 🖨️</button></div>
-          </div>
+        <div class="left-buttons" aria-hidden="true">
+          <!-- made these real links so navigation works -->
+          <a href="home.html" class="left-btn">HOME</a>
+          <a href="resume.html" class="left-btn ghost">RESUME</a>
+          <a href="biodata.html" class="left-btn ghost">BIO-DATA</a>
         </div>
       </div>
-    </section>
 
-    <!-- KEEP NAV BAR EXACTLY as project uses (no change) -->
-    <nav class="bottom-nav" role="navigation" aria-label="Main">
-      <div class="bottom-pill">
-        <a href="home.html" class="nav-btn home"><span>HOME</span></a>
-        <a href="resume.html" class="nav-btn resume active"><span>RESUME</span></a>
-        <a href="biodata.html" class="nav-btn biodata"><span>BIODATA</span></a>
+      <!-- RIGHT COLUMN -->
+      <div>
+        <div class="title-row">
+          <div>
+            <h1 class="big-title">HERE IS <strong>MY RESUME!</strong></h1>
+            <div class="subtitle">ACCURATE INFORMATION FOR YOU! 100% FACTS!</div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+            <div class="ajiet-pill">AJIET</div>
+
+            <div class="social-stack">
+              <div class="social-pill">LINKEDIN@12344DHGWKSDGJDG</div>
+              <div class="social-pill">GITHUB/VINYASEEEEE/EEW</div>
+              <div class="social-pill">VINYAS_A_S@INSTAGRAM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career objective -->
+        <div class="card" style="margin-top:18px">
+          <div class="pill">CAREER OBJECTIVE</div>
+          <p style="margin-top:8px;color:#444">Blah Blah Blah front-end development to contribute to an innovative and collaborative team. Passionate about creating intuitive, engaging, and accessible digital experiences that solve real-world problems.</p>
+        </div>
+
+        <!-- Education -->
+        <div class="card">
+          <div class="pill">EDUCATION</div>
+          <div class="edu-row">
+            <div class="edu-box">
+              <strong>SSLC</strong><br><small style="color:#777">Subrahmanyah School, Subrahmanyah, Karnataka</small>
+              <div class="year">2019</div>
+            </div>
+            <div class="edu-box">
+              <strong>DIPLOMA</strong><br><small style="color:#777">KPT college, Kadri, Mangalore</small>
+              <div class="year">2024</div>
+            </div>
+            <div class="edu-box">
+              <strong>B.E</strong><br><small style="color:#777">Ajiet college, Kuloor, Mangalore</small>
+              <div class="year">PURSING</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical skills -->
+        <div class="card">
+          <div class="pill">TECHNICAL SKILLS</div>
+          <div class="skill-list">
+            <div class="skill">JAVA</div>
+            <div class="skill">KOTLIN</div>
+            <div class="skill">PYTHON</div>
+            <div class="skill">C</div>
+            <div class="skill">APP DEVELOPMENT</div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="card">
+          <div class="pill">CERTIFICATIONS</div>
+          <div class="cert-grid">
+            <div class="cert"><strong>Bonda Seller</strong><div style="color:#999;margin-top:6px">mfc bonda mart</div></div>
+            <div class="cert"><strong>Aur Bahi Kya Pani Arahe Ki Nahi Area Me</strong><div style="color:#999;margin-top:6px">infosyssss</div></div>
+            <div class="cert"><strong>CYBERSECURity Analyst</strong><div style="color:#999;margin-top:6px">eyeqdotnet</div></div>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="card">
+          <div class="pill">PROJECTS</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+            <div class="cert"><strong>KasaPe</strong><div style="color:#999;margin-top:6px">Government project</div></div>
+            <div class="cert"><strong>DoseMaker</strong><div style="color:#999;margin-top:6px">big kunta hotel</div></div>
+            <div class="cert"><strong>Sudeep Sticker Maker</strong><div style="color:#999;margin-top:6px">kannada suddeeep fans</div></div>
+          </div>
+        </div>
+
       </div>
-    </nav>
+    </div>
+
+    <!-- bottom nav pill (keeps the same look as other pages) -->
+    <div class="bottom-nav-wrap">
+      <div class="bottom-pill" role="navigation" aria-label="Main">
+        <a href="home.html" class="nav-btn"><span>HOME</span></a>
+        <a href="resume.html" class="nav-btn active"><span>RESUME</span></a>
+        <a href="biodata.html" class="nav-btn"><span>BIODATA</span></a>
+      </div>
+    </div>
+
   </div>
+
   <script src="assets/vendor/jquery.min.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
