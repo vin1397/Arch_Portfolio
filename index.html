@@ -3,68 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ArchPortpoliyo — Home</title>
+  <title>ArchPortpoliyo — Welcome</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
-
-  <meta name="theme-color" content="#ffffff">
+  <style>
+    /* tiny landing overrides so we don't change UI files */
+    body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#fff}
+    .starter {text-align:center;padding:40px;border-radius:18px;border:2px solid #eee;max-width:820px}
+    .starter h1{font-family:'Montserrat',sans-serif;margin:0 0 8px 0;font-size:40px}
+    .starter p{color:#666;margin-bottom:22px}
+    .btn {background:var(--accent);color:#fff;padding:12px 26px;border-radius:28px;text-decoration:none;font-weight:700;display:inline-block}
+    .small {display:block;margin-top:14px;color:#999;font-size:13px}
+  </style>
 </head>
-<body class="site-root">
-  <!-- main bordered container -->
-  <div class="page-wrap rounded-frame large-hero">
-    <header class="top-row">
-      <div class="crafted">
-        <img src="images/pen.png" alt="pen icon" class="crafted-icon">
-        CRAFTED BY <strong>VINYAS</strong>
-      </div>
-
-      <div class="ajiet-btn">AJIET</div>
-    </header>
-
-    <main class="hero-grid">
-      <div class="hero-left">
-        <h2 class="greeting">HI, I’M <span class="name">VINYAS</span></h2>
-
-        <div class="role-pill">APP DEVELOPER</div>
-
-        <div class="hero-row">
-          <div class="avatar-wrap">
-            <img src="images/profile.jpg" alt="Vinyas" class="hero-avatar">
-          </div>
-
-          <div class="mono-wrap">
-            <p class="monotext">
-              Writing <span class="code">&lt;code&gt;</span> that<br>
-              powers the apps you<br>
-              love.
-            </p>
-          </div>
-
-          <div class="arrow-wrap">
-            <img src="images/arrow.png" alt="arrow" class="hero-arrow">
-          </div>
-        </div>
-      </div>
-
-      <aside class="hero-right" aria-hidden="true"></aside>
-    </main>
-  </div> <!-- end of page-wrap -->
-
-  <!-- bottom nav moved OUTSIDE of bordered container -->
-  <nav class="bottom-nav">
-    <div class="bottom-pill">
-      <a href="index.html" class="nav-btn home active"><span>HOME</span></a>
-      <a href="resume.html" class="nav-btn resume"><span>RESUME</span></a>
-      <a href="biodata.html" class="nav-btn biodata"><span>BIODATA</span></a>
-    </div>
-  </nav>
-
-  <!-- scripts -->
-  <script src="assets/vendor/jquery.min.js"></script>
-  <script src="assets/js/app.js"></script>
+<body>
+  <div class="starter">
+    <h1>ArchPortpoliyo</h1>
+    <p>Your portfolio — click Enter to view the full site.</p>
+    <a href="home.html" class="btn">Enter →</a>
+    <span class="small">If you want / to publish the full site at the root later, we can swap files.</span>
+  </div>
 </body>
 </html>
