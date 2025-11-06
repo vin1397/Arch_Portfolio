@@ -199,3 +199,10 @@ html,body{height:100%;margin:0;background:#fff;color:var(--dark)}
   .bottom-nav,.top-row{display:none}
   .page-wrap{border:none;padding:8px}
 }
+/* === FIX for Home page border === */
+.large-hero {
+  width: 90%;              /* or 100% if you want full width */
+  max-width: none;          /* remove limit */
+  margin: 60px auto;        /* keeps it centered */
+  display: block;
+}
