@@ -4,77 +4,191 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ArchPortpoliyo — Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <!-- fonts (same as other pages) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Space+Mono&display=swap" rel="stylesheet">
+  <!-- global stylesheet (keeps nav styling unchanged) -->
   <link rel="stylesheet" href="assets/css/styles.css">
-  <meta name="robots" content="noindex">
+
+  <!-- Scoped resume styles (won't modify global nav) -->
+  <style>
+    /* Scoped to resume page container */
+    #resume-content { font-family: 'Montserrat', system-ui, sans-serif; color: #111; }
+
+    /* grid layout */
+    #resume-content .inner {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    /* left column */
+    .profile {
+      text-align: left;
+    }
+    .profile .avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      border: 6px solid #fff;
+    }
+    .profile h1 {
+      font-size: 22px;
+      margin: 18px 0 6px;
+      letter-spacing: 1px;
+    }
+    .profile .sub {
+      color: #7c7c7c;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+    .profile .contact {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #555;
+    }
+    .profile .contact div { margin: 10px 0; display:flex; gap:10px; align-items:center; }
+
+    /* right column cards */
+    .card {
+      border: 2px solid rgba(0,0,0,0.06);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 22px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: .3px;
+    }
+    .muted { color:#6f6f6f; font-size: 15px; line-height:1.6; }
+
+    /* skills badges */
+    .skills { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .skill {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      background: rgba(197,64,55,0.07);
+      border-radius:18px;
+      color:#c64037;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    /* projects / bullets */
+    ul.project-list { margin:10px 0 0 18px; color:#333; }
+    ul.project-list li { margin-bottom:8px; }
+
+    /* smaller screens */
+    @media (max-width: 880px) {
+      #resume-content .inner { grid-template-columns: 1fr; }
+      .profile { text-align: center; }
+      .profile .avatar { margin: 0 auto; }
+      .profile h1 { text-align:center; }
+    }
+  </style>
 </head>
-<body class="site-root print-ready">
-  <div class="page-wrap rounded-frame">
-    <header class="resume-header">
-      <div class="left">
-        <img src="images/profile.jpg" alt="Profile" class="profile-photo small">
+<body>
+  <div class="page-wrap rounded-frame biodata-page">
+    <!-- header (keeps your crafted/ajiet area) -->
+    <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <img src="images/pen.png" width="36" height="36" style="border-radius:50%" alt="pen">
+        <div style="font-weight:700;letter-spacing:.6px">CRAFTED BY <strong>VINYAS</strong></div>
       </div>
-      <div class="center">
-        <h1>VINYAS A S</h1>
-        <p class="muted">Front-end developer / App dev | Mangalore</p>
-      </div>
-      <div class="right">
-        <button id="printBtn" class="btn btn-outline">Download / Print 🖨️</button>
-      </div>
+      <div style="background:#000;color:#fff;padding:10px 18px;border-radius:24px;font-weight:700">AJIET</div>
     </header>
 
-    <main class="resume-content">
-      <section class="section">
-        <h2>Career Objective</h2>
-        <p>Front-end development to contribute to an innovative and collaborative team. Passionate about creating accessible digital experiences.</p>
-      </section>
+    <!-- RESUME CONTENT -->
+    <section id="resume-content">
+      <div class="inner">
+        <!-- LEFT -->
+        <aside class="profile">
+          <img src="images/profile.jpg" class="avatar" alt="Vinyas profile">
+          <h1>Vin​yas A S</h1>
+          <div class="sub">Front-end developer / App dev | Mangalore</div>
 
-      <section class="section two-col">
+          <div class="card" style="margin-top:18px">
+            <h3>Contact ✉️</h3>
+            <div class="contact">
+              <div>📧 <span style="color:#111;font-weight:600">vinyas1397@gmail.com</span></div>
+              <div>📞 <span style="color:#111;font-weight:600">+91 74835 36650</span></div>
+              <div>📍 <span>Subrahmanya, Noochila</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Technical Skills ⚙️</h3>
+            <div class="skills">
+              <span class="skill">Java</span>
+              <span class="skill">Kotlin</span>
+              <span class="skill">Python</span>
+              <span class="skill">C</span>
+              <span class="skill">App Dev</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Certifications 🎓</h3>
+            <div class="muted">
+              • Cybersecurity Analyst — eyeqdotnet<br>
+              • Bonda Seller — mfc bonda mart<br>
+              • Local project — infosyssss
+            </div>
+          </div>
+        </aside>
+
+        <!-- RIGHT -->
         <div>
-          <h3>Experience</h3>
-          <article>
-            <h4>Junior Developer — Company</h4>
-            <p class="muted">Jan 2023 – Present</p>
-            <ul>
-              <li>Worked on X, Y, Z</li>
+          <div class="card">
+            <h3>Career Objective 🎯</h3>
+            <p class="muted">Front-end development to contribute to an innovative and collaborative team. Passionate about creating accessible digital experiences that solve real-world problems.</p>
+          </div>
+
+          <div class="card">
+            <h3>Experience 💼</h3>
+            <div style="font-weight:700">Junior Developer — Company</div>
+            <div class="muted" style="margin:8px 0 12px">Jan 2023 — Present</div>
+            <ul class="project-list">
+              <li>Worked on feature X, Y and Z (performance improvements, UI components)</li>
+              <li>Built internal tools for faster release cycles</li>
             </ul>
-          </article>
+          </div>
+
+          <div class="card">
+            <h3>Education 🎓</h3>
+            <div class="muted">
+              SSLC — Subrahmanyah School (2019) <br>
+              Diploma — KPT College (2024) <br>
+              B.E — Ajiet college (Pursuing)
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Projects 🚀</h3>
+            <ul class="project-list">
+              <li><strong>KasaPe</strong> — Government project</li>
+              <li><strong>DoseMaker</strong> — hospitality app</li>
+              <li><strong>Sudeep Sticker Maker</strong> — community project</li>
+            </ul>
+          </div>
+
+          <div class="card" style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="color:#777">© ArchPortpoliyo — Resume</div>
+            <div><button onclick="window.print()" style="background:#eee;border:1px solid #ccc;padding:8px 12px;border-radius:6px;cursor:pointer">Download / Print 🖨️</button></div>
+          </div>
         </div>
-        <div>
-          <h3>Education</h3>
-          <dl>
-            <dt>SSLC — Subrahmanyah School (2019)</dt>
-            <dt>Diploma — KPT College (2024)</dt>
-            <dt>B.E — Ajiet college (Pursuing)</dt>
-          </dl>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section">
-        <h3>Technical Skills</h3>
-        <div class="skill-chips">
-          <span class="chip">Java ☕</span>
-          <span class="chip">Kotlin 📱</span>
-          <span class="chip">Python 🐍</span>
-          <span class="chip">App Development ⚙️</span>
-        </div>
-      </section>
-
-      <section class="section">
-        <h3>Projects</h3>
-        <ul class="muted">
-          <li>KasaPe — Government project</li>
-          <li>DoseMaker — big kunta hotel</li>
-          <li>Sudeep Sticker Maker — community project</li>
-        </ul>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      © <span id="year2"></span> ArchPortpoliyo — Resume
-    </footer>
-
-    <!-- ===== bottom nav (same pill used on other pages) ===== -->
+    <!-- KEEP NAV BAR EXACTLY as project uses (no change) -->
     <nav class="bottom-nav" role="navigation" aria-label="Main">
       <div class="bottom-pill">
         <a href="home.html" class="nav-btn home"><span>HOME</span></a>
@@ -82,10 +196,7 @@
         <a href="biodata.html" class="nav-btn biodata"><span>BIODATA</span></a>
       </div>
     </nav>
-    <!-- ===== end bottom nav ===== -->
-
   </div>
-
   <script src="assets/vendor/jquery.min.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
