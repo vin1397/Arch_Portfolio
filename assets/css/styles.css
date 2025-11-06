@@ -138,15 +138,22 @@ html,body{height:100%;margin:0;background:#fff;color:var(--dark)}
   border: 2px solid #111; /* this matches the outer frame’s border */
 }
 
-
-
 .bottom-pill{width:88%;max-width:1100px;height:74px;background:linear-gradient(180deg,var(--accent),#c64037);border-radius:44px;box-shadow:0 8px 0 rgba(0,0,0,0.08), inset 0 -6px 0 rgba(0,0,0,0.04);display:flex;align-items:center;justify-content:center;gap:48px;padding:0 32px;border:2px solid rgba(0,0,0,0.08);box-sizing:border-box}
 .bottom-pill .nav-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-weight:700;border-radius:28px;padding:12px 46px;transition:transform .12s, box-shadow .12s;position:relative;z-index:2}
 .bottom-pill .nav-btn span{display:inline-block;padding:10px 34px;border-radius:28px}
 .bottom-pill .nav-btn.home span,
+.bottom-pill .nav-btn.resume span,
 .bottom-pill .nav-btn.biodata span{background:rgba(0,0,0,0.08);color:#fff;box-shadow:inset 0 6px 0 rgba(0,0,0,0.06)}
+
 /* active button styling */
-.bottom-pill .nav-btn.active span{background:#fff;color:var(--accent);box-shadow:inset 0 6px 0 rgba(0,0,0,0.06)}
+.bottom-pill 
+.nav-btn.active span {
+  background: #ffffff;                  /* 🔹 button background color */
+  color: #000000;                       /* 🔹 text color (change this to your preferred color) */
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, 0.06);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 .bottom-pill .nav-btn:hover{transform:translateY(-2px)}
 
 /* biodata layout */
