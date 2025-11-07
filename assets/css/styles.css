@@ -412,19 +412,8 @@ border-radius: 28px;
   gap: 10px;
   margin-top: 25px;
 }
-.bottom-nav .nav-btn {
-  text-decoration: none;
-  font-weight: 700;
-  padding: 10px 20px;
-  border: 2px solid #ddd;
-  border-radius: 30px;
-  color: #000;
-  background: #fff;
-}
-.bottom-nav .nav-btn.active {
-  background: var(--accent, #d44236);
-  color: #fff;
-}
+
+
 
 /* Right column */
 .resume-right {
