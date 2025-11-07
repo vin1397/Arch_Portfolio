@@ -1,4 +1,4 @@
-# ArchPortpoliyo — Web Lab Assignment 1
+# ArchPortpoliyo — Web Lab Assignment 1(development in progress getting sleepy 😴)
 
 Static multi-page site (HTML, CSS, jQuery) containing Resume and Bio-data.
 
