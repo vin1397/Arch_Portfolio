@@ -28,17 +28,16 @@
     }
 
     /* BIG rounded outer landscape border */
-    .page-wrap{
-      width: min(1500px, 96%);
-      margin: 28px auto;
-      padding: 36px 56px;
-      border-radius: 60px;                 /* larger radius for landscape look */
-      border: 3px solid #111;
-      position: relative;
-      box-sizing: border-box;
-      background: #fff;
-      overflow: visible;
-    }
+    .page-wrap {
+  width: 98%; /* takes up more screen width */
+  max-width: 1800px; /* optional if you want limit */
+  margin: 20px auto;
+  padding: 40px 70px;
+  border-radius: 30px; /* less round, more rectangle */
+  border: 3px solid #111;
+  background: #fff;
+}
+
 
     /* inner layout: two columns — left narrow portrait, right content */
     .resume-grid{
@@ -124,7 +123,16 @@
 
     /* responsive adjustments for smaller screens */
     @media (max-width:1180px){
-      .page-wrap{padding:18px; border-radius:36px}
+      .page-wrap {
+  width: calc(100% - 80px);
+  margin: 40px auto;
+  padding: 40px 60px;
+  border: 3px solid #111;
+  border-radius: 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
       .resume-grid{grid-template-columns:1fr;gap:22px}
       .portrait{width:260px;height:380px;margin:0 auto}
       .title-row{flex-direction:column;align-items:center}
