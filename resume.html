@@ -16,7 +16,7 @@
       --card-bg:#fff;
 
       /* speech bubble position (easy tweak) */
-      --bubble-left: 24px;  /* change this value (px, %, calc(...)) to move bubble horizontally */
+      --bubble-left: -60px;  /* change this value (px, %, calc(...)) to move bubble horizontally */
       --bubble-top: 260px;  /* change this value to move bubble vertically */
     }
 
@@ -163,12 +163,13 @@
           <div class="contact-pill">Subrahmanya, Noochila</div>
         </div>
 
-        <div class="left-buttons" aria-hidden="true">
-          <!-- made these real links so navigation works -->
-          <a href="home.html" class="left-btn ">HOME</a>
-          <a href="resume.html" class="left-btn ghost">RESUME</a>
-          <a href="biodata.html" class="left-btn ">BIO-DATA</a>
-        </div>
+        <nav class="bottom-nav">
+  <div class="bottom-pill">
+    <a href="home.html" class="nav-btn home"><span>HOME</span></a>
+    <a href="resume.html" class="nav-btn resume active"><span>RESUME</span></a>
+    <a href="biodata.html" class="nav-btn biodata"><span>BIODATA</span></a>
+  </div>
+</nav>
       </div>
 
       <!-- RIGHT COLUMN -->

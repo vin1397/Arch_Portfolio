@@ -469,6 +469,9 @@ border-radius: 28px;
   margin: 5px;
   font-weight: 600;
 }
+.page-wrap {
+  margin-bottom: 1000px; /* adds space below the border */
+}
 
 
 
