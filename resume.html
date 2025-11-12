@@ -148,6 +148,88 @@
       .bottom-pill{width:92%}
       .speech-bubble{left: 50%; transform: translate(-50%,-50%); top: calc(100% - 20px); position: relative}
     }
+    :root{
+  --red: #cf2c2a;
+  --red-dark: #b41f1c;
+  --capsule-h: 41px;   /* overall capsule height */
+  --capsule-radius: 1100px;
+  --capsule-border: 2px;
+  --notch-d: 50px;     /* diameter of the white notch circle */
+  --pad-x: 12px;
+  --font-size: 15px;
+}
+
+.contact-bar{
+  display:inline-flex;
+  align-items:center;
+  height: var(--capsule-h);
+  border-radius: var(--capsule-radius);
+  background: #fff;
+  border: var(--capsule-border) solid var(--red);
+  overflow: hidden; /* IMPORTANT: clip the notch so only half-circle shows */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight:700;
+}
+
+.contact-bar a{
+  display:inline-flex;
+  align-items:center;
+  height: calc(var(--capsule-h) - (var(--capsule-border) * 2));
+  line-height:1;
+  padding: 0 var(--pad-x);
+  text-decoration:none;
+  font-size: var(--font-size);
+  color: inherit;
+}
+
+/* LEFT: email (white) */
+.contact-bar .email{
+  background: #fff;
+  color: #111;
+  border-top-left-radius: var(--capsule-radius);
+  border-bottom-left-radius: var(--capsule-radius);
+  margin-left: calc(var(--capsule-border)); /* keep inside border */
+  z-index: 1;
+}
+
+/* RIGHT: phone (red) */
+.contact-bar .phone{
+  position: relative;
+  background: var(--red);
+  color: #fff;
+  border-top-right-radius: var(--capsule-radius);
+  border-bottom-right-radius: var(--capsule-radius);
+  margin-right: calc(var(--capsule-border)+ 8px); /* keep inside border */
+  padding-left: calc(var(--pad-x) + 8px); /* extra so text clears the notch */
+  z-index: 0;
+}
+
+.contact-bar .phone::before{
+  content: "";
+  position: absolute;
+  left: calc(-1 * (var(--notch-d) / 2)); /* move circle left so half is outside */
+  top: 50%;
+  transform: translate(0, -50%); /* vertically center */
+  width: var(--notch-d);
+  height: var(--notch-d);
+  background: #fff;                /* same as capsule interior */
+  border-radius: 50%;
+  /* draw a red ring equal to the capsule border so the border appears continuous */
+  box-shadow: 0 0 0 calc(var(--capsule-border)) var(--red);
+  pointer-events: none;
+  z-index: 2; /* sit above phone red background */
+}
+
+/* polish on hover */
+.contact-bar .phone:hover{ background: var(--red-dark); }
+.contact-bar .email:hover{ background: #fafafa; }
+
+/* responsive fallback: stack on small widths and hide notch */
+@media (max-width:420px){
+  .contact-bar{ display:block; border-radius:12px; padding:6px; }
+  .contact-bar a{ display:block; width:100%; margin:6px 0; border-radius:8px; padding:10px; }
+  .contact-bar .phone::before{ display:none; }
+}
   </style>
 </head>
 <body>
@@ -165,9 +247,18 @@
         </div>
 
         <div class="contact-row">
-          <div class="contact-pill">vinyas1397@gmail.com</div>
-          <div class="contact-pill accent">+91 7483536650</div>
-          <div class="contact-pill">Subrahmanya, Noochila</div>
+          <div class="contact-bar">
+  <a href="mailto:vinyas1397@gmail.com" class="email">vinyas1397@gmail.com</a>
+ <a href="tel:+917483536650" class="phone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 7483536650</a>
+
+</div>
+
+          <div class="address-contact">
+  <div class="address">Subrahmanya, Noochila</div>
+  <a href="contact.html" class="contact-btn">Contact Me</a>
+</div>
+
+          
         </div>
 
         <nav class="bottom-nav">
@@ -213,7 +304,7 @@
               <div class="year">2019</div>
             </div>
             <div class="edu-box">
-              <strong>DIPLOMA</strong><br><small style="color:#777">Karnataka (govt) polytechnic college, Mangalore </small>
+              <strong>DIPLOMA</strong><br><small style="color:#777">Karnataka (govt) polytechnic, Mangalore </small>
               <div class="year">2024</div>
             </div>
             <div class="edu-box">
@@ -249,7 +340,8 @@
           <div class="pill">CERTIFICATIONS</div>
           <div class="cert-grid">
             <div class="cert"><strong>NCVT</strong><div style="color:#999;margin-top:6px">Electronics</div></div>
-            <div class="cert"><strong>badhmash gang noochila</strong><div style="color:#999;margin-top:6px">infosyssss</div></div>
+            <div class="cert"><strong>Infosys Springboard</strong><div style="color:#999;margin-top:6px">Cyber security</div></div>
+            <div class="cert"><strong>Infosys Springboard</strong><div style="color:#999;margin-top:6px">Machine learning</div></div>
             <div class="cert"><strong>EyeDotNet</strong><div style="color:#999;margin-top:6px">CYBERSECURity Analyst</div></div>
           </div>
         </div>

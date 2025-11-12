@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get in touch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#111315;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --stroke:#e9e9ee;
+      --accent:#cf2c2a;
+      --accent-2:#b41f1c;
+      --pill:#fbe4e6;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 520px at 0% 0%, rgba(255,120,140,.35), transparent 70%),
+        radial-gradient(1200px 520px at 100% 0%, rgba(255,120,140,.35), transparent 70%),
+        var(--bg);
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-size:100% 600px; /* prevents pink tint at bottom */
+    }
+
+    .wrap{max-width:1080px;padding:56px 24px 96px;margin:0 auto;}
+    .page-head{text-align:center;margin:10px auto 26px;}
+    .page-head h1{margin:0 0 10px;font-size:40px;font-weight:800;}
+    .page-head p{margin:0;color:var(--muted);font-weight:500;}
+
+    .panel{
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:28px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      padding:26px;
+    }
+
+    /* left details */
+    .details h3{margin:0 0 6px;font-size:22px;font-weight:800;}
+    .details p.lead{margin:0 0 18px;color:var(--muted);}
+    .row{display:flex;align-items:center;gap:14px;padding:10px 0;}
+    .ico{width:44px;height:44px;border-radius:12px;background:var(--pill);display:grid;place-items:center;}
+    .ico svg{width:22px;height:22px;stroke:#e36b73}
+    .meta{display:flex;flex-direction:column;gap:4px;}
+    .meta .label{font-weight:700;}
+    .meta .value{color:var(--muted);font-weight:500;}
+
+    .hr{border-top:1px solid var(--stroke);margin:14px 0 18px;}
+    .social h4{margin:0 0 12px;font-size:18px;font-weight:800;}
+    .s-list{display:flex;gap:14px;}
+    .s-btn{width:44px;height:44px;border:1px solid var(--stroke);background:#f6f7fb;border-radius:10px;display:grid;place-items:center;text-decoration:none;}
+    .s-btn svg{width:20px;height:20px;fill:#111}
+
+    /* right form */
+    .form h3{margin:0 0 6px;font-size:22px;font-weight:800;}
+    .form p.lead{margin:0 0 18px;color:var(--muted);}
+    .grid{display:grid;gap:14px;}
+    .input, textarea{
+      width:100%;
+      border:1px solid var(--stroke);
+      background:#fafafa;
+      border-radius:12px;
+      padding:14px 16px;
+      font:inherit;
+      outline:none;
+      transition:border-color .15s, box-shadow .15s, background .15s;
+    }
+    .input::placeholder, textarea::placeholder{ color:#9aa0a6; }
+    .input:focus, textarea:focus{
+      background:#fff;
+      border-color:#e6a6ab;
+      box-shadow:0 0 0 4px rgba(233, 126, 134, .18);
+    }
+    textarea{min-height:140px; resize: vertical;}
+
+    .btn{
+      margin-top:6px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:none;
+      border-radius:12px;
+      font-weight:800;
+      padding:16px 26px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      color:#fff;
+      cursor:pointer;
+      box-shadow: 0 8px 18px rgba(207,44,42,.25), inset 0 -3px 0 rgba(0,0,0,.08);
+    }
+    .btn svg{width:22px;height:22px; fill:#fff;}
+
+    /* toast notifications (simple and clean) */
+    .toast-wrap{
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:9999;
+      pointer-events:none;
+    }
+    .toast{
+      pointer-events:auto;
+      min-width:260px;
+      max-width:360px;
+      padding:12px 16px;
+      border-radius:10px;
+      color:#fff;
+      box-shadow:0 8px 24px rgba(17,19,21,.12);
+      display:flex;
+      gap:12px;
+      align-items:center;
+      font-weight:700;
+      background:linear-gradient(90deg,#2bbf7a,#0b8f5f);
+      transform:translateY(8px);
+      opacity:0;
+      animation:toast-in .28s forwards;
+    }
+    @keyframes toast-in{ to{ transform:translateY(0); opacity:1; } }
+
+    @media (max-width:860px){
+      .panel{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Get in touch</h1>
+      <p>Have a question or want to work together?<br>Feel free to reach out using the form below or through any of my contact channels</p>
+    </header>
+
+    <section class="panel">
+      <!-- Left: Contact details -->
+      <aside class="card details">
+        <h3>Contact Details</h3>
+        <p class="lead">Lets connect and collaborate...</p>
+
+        <div class="row">
+          <div class="ico" aria-hidden="true">
+            <!-- mail -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+              <path d="M22 8l-10 6L2 8"></path>
+            </svg>
+          </div>
+          <div class="meta">
+            <span class="label">Email</span>
+            <span class="value" id="contact-email">vinyasgowda1397@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ico" aria-hidden="true">
+            <!-- phone -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.1 6.18 2 2 0 0 1 5.1 3.999h3a2 2 0 0 1 2 1.72l.5 3a2 2 0 0 1-.55 1.86l-1.2 1.2a16 16 0 0 0 6.88 6.88l1.2-1.2a2 2 0 0 1 1.86-.55l3 .5A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div class="meta">
+            <span class="label">Phone</span>
+            <span class="value">+91 7483536650</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ico" aria-hidden="true">
+            <!-- address -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21s8-6.3 8-12a8 8 0 1 0-16 0c0 5.7 8 12 8 12z"></path>
+              <circle cx="12" cy="9" r="3"></circle>
+            </svg>
+          </div>
+          <div class="meta">
+            <span class="label">Address</span>
+            <span class="value">Mangalore, Karnataka</span>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="s-list" role="list">
+  <a class="s-btn" href="https://www.linkedin.com/in/vini1397" target="_blank" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24">
+      <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5 2.5 2.5 0 0 0 4.98 3.5zM3 9h4v12H3zM10 9h4v2h.06A4.39 4.39 0 0 1 18.5 9c3.2 0 3.5 2.1 3.5 4.8V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H10z"/>
+    </svg>
+  </a>
+
+  <a class="s-btn" href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">
+    <svg viewBox="0 0 24 24">
+      <path d="M18 2l-6.2 7.4L8 5l-2 2 3.8 4.4L2 22h4.2l6.4-7.8L16 19l2-2-4.4-5L22 2h-4z"/>
+    </svg>
+  </a>
+
+  <a class="s-btn" href="https://github.com/vin1397" target="_blank" aria-label="GitHub">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.6-1.4-2-1.4-2-1.2-.8.1-.8.1-.8 1.3.1 1.9 1.3 1.9 1.3 1.2 1.9 3.1 1.4 3.9 1.1.1-.9.5-1.4.8-1.7-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C16.8 5 17.8 5.3 17.8 5.3c.6 1.7.1 3 .1 3.3.8.9 1.2 2 1.2 3.2 0 4.6-2.7 5.6-5.3 5.9.5.4.9 1.2.9 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/>
+    </svg>
+  </a>
+</div>
+
+      </aside>
+
+      <!-- Right: Form -->
+      <div class="card form">
+        <h3>Send me a message</h3>
+        <p class="lead">I’ll respond within a short period....</p>
+
+        <form class="grid" id="contact-form" autocomplete="on" novalidate>
+          <label>
+            <div style="font-weight:700;margin-bottom:6px;">Name</div>
+            <input class="input" id="name" name="name" type="text" placeholder="Name" required>
+          </label>
+
+          <label>
+            <div style="font-weight:700;margin-bottom:6px;">Email</div>
+            <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            <div style="font-weight:700;margin-bottom:6px;">Subject</div>
+            <input class="input" id="subject" name="subject" type="text" placeholder="What’s this about?" required>
+          </label>
+
+          <label>
+            <div style="font-weight:700;margin-bottom:6px;">Message</div>
+            <textarea id="message" name="message" placeholder="Your message......." required></textarea>
+          </label>
+
+          <button class="btn" id="send-btn" type="submit" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l20-9-6 9 6 9-20-9z"/></svg>
+            <span id="btn-text">Send Message</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- toast container -->
+  <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+
+ <script>
+(function(){
+  const form = document.getElementById('contact-form');
+  const toastWrap = document.getElementById('toast-wrap');
+  const sendBtn = document.getElementById('send-btn');
+  const btnText = document.getElementById('btn-text');
+
+  function createToast(text){
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.innerHTML = '<span style="font-size:18px;margin-right:8px;">✅</span>' + text;
+    toastWrap.appendChild(t);
+    setTimeout(()=> {
+      t.style.transition = 'opacity .28s, transform .28s';
+      t.style.opacity = '0';
+      t.style.transform = 'translateY(12px)';
+      setTimeout(()=> t.remove(), 300);
+    }, 3400);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Put the UI into "sending" state AFTER submit starts
+    btnText.textContent = 'Sending...';
+    sendBtn.disabled = true;
+
+    // (Optional) simple validation but still treat as "sent" per your plan
+    if (!form.checkValidity()) {
+      // trigger browser validation UI (but we still show sent)
+      Array.from(form.elements).forEach(el => {
+        try { el.reportValidity?.(); } catch(e) {}
+      });
+    }
+
+    // Simulate a short send delay so users see the button feedback,
+    // then reset the form and show the success toast.
+    setTimeout(() => {
+      form.reset();
+      createToast('Message sent successfully!');
+      btnText.textContent = 'Send Message';
+      sendBtn.disabled = false;
+    }, 600); // 600ms looks natural; change to 0 if you want instant reset
+  });
+})();
+</script>
+
+</body>
+</html>

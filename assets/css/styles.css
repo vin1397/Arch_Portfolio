@@ -297,6 +297,7 @@ border-radius: 28px;
   display: inline-block;
   width: 340px;
   height: auto;
+   transform: translateX(20px);
 }
 
 /* Bubble defaults */
@@ -367,9 +368,15 @@ border-radius: 28px;
   position: relative;
   width: 300px;
 }
-.portrait-img {
-  width: 100%;
-  border-radius: 20px;
+.portrait {
+   width: 380px;              /* same width as contact section */
+  height: 560px;             /* adjust as needed */
+  border-radius: 20px;       /* smooth round corners */
+  object-fit: cover;         /* ensures perfect cropping */
+  object-position: center top; /* centers the focus area */
+  display: block;
+  margin: 0 auto;            /* centers horizontally */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* Keep bubble inside the border */
@@ -403,6 +410,12 @@ border-radius: 28px;
 .contact-pill.phone {
   background: var(--accent, #d44236);
   color: #fff;
+}
+.contact-bar .phone {
+  padding-left: calc(var(--pad-x) + 20px);
+  padding-right: calc(var(--pad-x) + 10px);
+  min-width: 190px;
+  
 }
 
 /* Bottom nav (landscape pills) */
@@ -474,4 +487,167 @@ border-radius: 28px;
 }
 
 
+.address-contact {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+  gap: 10px;              /* space between address and button */
+  margin-top: 2px;       /* spacing from the element above */
+}
 
+.address {
+  background: #fff;
+  border: 2px solid #cf2c2a;
+  color: #111;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  padding: 10px 24px;
+  border-radius: 999px;
+}
+
+.contact-btn {
+  background: #cf2c2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  transition: background 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #b41f1c;
+}
+
+/* Wrapper for all three items */
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers everything horizontally */
+  gap: 10px;             /* spacing between each item */
+  margin-top: 10px;
+}
+
+/* Make all elements same width */
+.contact-wrapper > * {
+  width: 320px;          /* ✅ adjust to your desired width */
+  text-align: center;
+}
+
+/* Optional: ensure items scale responsively */
+@media (max-width: 400px) {
+  .contact-wrapper > * {
+    width: 90%;          /* makes it flexible on mobile */
+  }
+}
+/* ---- Overall Wrapper ---- */
+.contact-row {
+  display: flex;
+  flex-direction: column;    /* stack vertically */
+  align-items: center;       /* center horizontally */
+  gap: 10px;                 /* equal spacing between elements */
+  margin-top: 10px;
+}
+
+/* ---- Make all elements same width ---- */
+.contact-row > * {
+  width: 320px;              /* adjust width as needed */
+  text-align: center;
+}
+
+/* ---- Address Section ---- */
+.address-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;                  /* space between address and button */
+}
+
+.address {
+  background: #fff;
+  border: 2px solid #cf2c2a;
+  color: #111;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  width: 100%;               /* match parent width */
+}
+
+/* ---- Contact Button ---- */
+.contact-btn {
+  background: #cf2c2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: background 0.3s ease;
+  width: 100%;               /* same width */
+  text-align: center;
+}
+
+.contact-btn:hover {
+  background: #b41f1c;
+}
+
+/* ---- Responsive for smaller screens ---- */
+@media (max-width: 420px) {
+  .contact-row > * {
+    width: 90%;              /* auto scale on mobile */
+  }
+}
+.contact-bar {
+  display: flex;
+  width: 100%;
+}
+
+.contact-bar .email {
+  flex: 2; /* increase this number for more width */
+}
+
+.contact-bar .phone {
+  flex: 1;
+}
+/* === ALIGN IMAGE AND CONTACT BLOCKS PERFECTLY CENTER === */
+.portrait-wrap,
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make contact-row same width as portrait image */
+.contact-row {
+  width: 380px;       /* ✅ same as your .portrait width in resume.html */
+  margin: 0 auto;     /* centers it under the image */
+  gap: 10px;          /* equal spacing between each block */
+}
+
+/* Make all inner elements same width */
+.contact-row > * {
+  width: 100%;
+}
+
+/* Ensure address + button stay centered and equal width */
+.address-contact {
+  width: 100%;
+  align-items: center;
+}
+.address,
+.contact-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Adjust portrait spacing */
+.portrait-wrap {
+  margin-bottom: 12px;
+}
