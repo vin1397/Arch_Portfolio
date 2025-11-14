@@ -11,7 +11,7 @@ Static multi-page site (HTML, CSS, jQuery) containing Resume and Bio-data.
 1. jfe er rwefa faf afaf af a.
 2. af w afafawfrae gseega :
    ea aer rara a
-3. ara raeg srykdya hr eatw svgjmryydd
+3. ara raeg srykdya hr eatw svgjmryyddhhhhh
 
 ## ⚠️ Warning
 ⚠️ style.css currently has the alignment skills of a drunk octopus. Proceed with caution.
