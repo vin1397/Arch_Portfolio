@@ -533,7 +533,7 @@ border-radius: 28px;
 
 /* Make all elements same width */
 .contact-wrapper > * {
-  width: 320px;          /* ✅ adjust to your desired width */
+  width: 320px;        
   text-align: center;
 }
 
