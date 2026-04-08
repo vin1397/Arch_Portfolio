@@ -1,18 +1,20 @@
-# ArchPortpoliyo
+# ArchPortpoliyo 🚀
 
-Static multi-page site (HTML, CSS, jQuery) containing Resume and Bio-data.
+A static multi-page portfolio site built using HTML, CSS, and a bit of JS.  
+Includes Resume and Bio-data sections.
 
-## Run locally
-1. Start a simple static server (recommended):
-   - `npx serve .` or `npx http-server`
-2. Open `http://localhost:3000` (or printed port).
+---
 
-## note
-1. jfe er rwefa faf afaf af a.
-2. af w afafawfrae gseega :
-   ea aer rara a
-3. ara raeg srykdya hr eatw svgjmryyddhhhhh
+## 🛠️ Run Locally
+1. run index.html🙂
+   OR
+1. Start a simple static server:
+   - `npx serve .`
+   - or `npx http-server`
+2. Open in browser:
+   - http://localhost:3000
+---
 
-## ⚠️ Warning
-⚠️ style.css currently has the alignment skills of a drunk octopus. Proceed with caution.
-
+## 👀 What's Next
+Cooking something bigger behind the scenes 🍳🔥  
+Stay tuned.
