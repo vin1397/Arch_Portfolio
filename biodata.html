@@ -3,51 +3,113 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ArchPortpoliyo — Bio-data</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Portfolio — Bio-Data</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="site-root">
-  <div class="page-wrap rounded-frame biodata-page">
+<body>
+
+<svg style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.028;width:860px;height:860px;pointer-events:none;z-index:0" viewBox="0 0 200 200" fill="none">
+  <circle cx="100" cy="100" r="95" stroke="#4f5ef7" stroke-width="0.7"/>
+  <polygon points="100,8 190,158 10,158" stroke="#4f5ef7" stroke-width="0.7" fill="none"/>
+  <polygon points="100,192 10,42 190,42" stroke="#4f5ef7" stroke-width="0.7" fill="none"/>
+  <circle cx="100" cy="100" r="5" fill="rgba(79,94,247,0.3)" stroke="#4f5ef7"/>
+  <line x1="100" y1="5" x2="100" y2="195" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="5" y1="100" x2="195" y2="100" stroke="#4f5ef7" stroke-width="0.3"/>
+</svg>
+
+<div class="page-wrap" style="border-radius:0">
+  <div class="page-inner">
+
+    <!-- Bio Header -->
     <header class="bio-header">
-      <div class="bio-icon">🧾</div>
+      <div class="bio-icon">
+        <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px;stroke:#4f5ef7;stroke-width:1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
       <div class="bio-title">
         <h1>BIO-DATA</h1>
-        <p class="sub">A little bit about me outside of work</p>
+        <p class="sub">// A little bit about me outside of work</p>
+      </div>
+      <!-- decorative right label -->
+      <div style="margin-left:auto;text-align:right">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(79,94,247,0.4)">SOCIAL LINK DATA</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;color:rgba(79,94,247,0.2)">GEKKOUKAN</div>
       </div>
     </header>
 
     <main class="bio-grid">
+      <!-- Left -->
       <div class="bio-left">
-        <img src="images/profile.jpg" class="bio-avatar" alt="profile">
-        <h2 class="bio-name">Vinyas A S</h2>
+        <img src="images/profile.jpg" class="bio-avatar" alt="Vinyas A S"
+          onerror="this.style.display='none';document.getElementById('bio-ph').style.display='flex'">
+        <div id="bio-ph" class="bio-avatar-placeholder" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;stroke:#4f5ef7;stroke-width:0.8">
+            <circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/>
+          </svg>
+        </div>
+
+        <h2 class="bio-name">VINYAS A S</h2>
 
         <ul class="bio-contact">
-          <li><span class="icon">🎂</span> 15 January 2003</li>
-          <li><span class="icon">📞</span> +91 7483536650</li>
-          <li><span class="icon">✉️</span> vinyas1397@gmail.com</li>
-          <li><span class="icon">📍</span> subrhmanya, noochila</li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;stroke:#4f5ef7;stroke-width:2;flex-shrink:0">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            15 January 2003
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;stroke:#4f5ef7;stroke-width:2;flex-shrink:0">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.1 6.18 2 2 0 0 1 5.1 4h3a2 2 0 0 1 2 1.72l.5 3a2 2 0 0 1-.55 1.86l-1.2 1.2a16 16 0 0 0 6.88 6.88l1.2-1.2a2 2 0 0 1 1.86-.55l3 .5A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            +91 7483536650
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;stroke:#4f5ef7;stroke-width:2;flex-shrink:0">
+              <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M22 8l-10 6L2 8"/>
+            </svg>
+            vinyas1397@gmail.com
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;stroke:#4f5ef7;stroke-width:2;flex-shrink:0">
+              <path d="M12 21s8-6.3 8-12a8 8 0 1 0-16 0c0 5.7 8 12 8 12z"/><circle cx="12" cy="9" r="3"/>
+            </svg>
+            Subrahmanya, Noochila
+          </li>
         </ul>
+
+        <!-- mini sigil -->
+        <svg viewBox="0 0 120 120" fill="none" style="width:100px;height:100px;margin-top:24px;opacity:0.25">
+          <circle cx="60" cy="60" r="56" stroke="#4f5ef7" stroke-width="1"/>
+          <circle cx="60" cy="60" r="36" stroke="#8b5cf6" stroke-width="0.8"/>
+          <polygon points="60,6 110,90 10,90" stroke="#4f5ef7" stroke-width="0.8" fill="none"/>
+          <polygon points="60,114 10,30 110,30" stroke="#4f5ef7" stroke-width="0.8" fill="none"/>
+          <circle cx="60" cy="60" r="5" fill="rgba(79,94,247,0.3)" stroke="#4f5ef7" stroke-width="1"/>
+        </svg>
       </div>
 
+      <!-- Right -->
       <div class="bio-right">
         <section class="bio-card">
-          <h3>Hobbies</h3>
+          <h3>HOBBIES</h3>
           <div class="chip-row">
-            <span class="chip">cooking 🍳</span>
+            <span class="chip">Cooking 🍳</span>
             <span class="chip">Hiking 🥾</span>
-            <span class="chip">ethical hacking 🤖</span>
-            <span class="chip">Sleeping 😪 </span>
+            <span class="chip">Ethical Hacking 🤖</span>
+            <span class="chip">Sleeping 😪</span>
           </div>
         </section>
 
         <hr class="divider">
 
         <section class="bio-card">
-          <h3>Interests</h3>
+          <h3>INTERESTS</h3>
           <div class="chip-row">
-            <span class="chip">Finding problems 😁</span>
-            <span class="chip">cracking security 🌱</span>
+            <span class="chip">Finding Problems 😁</span>
+            <span class="chip">Cracking Security 🌱</span>
             <span class="chip">Minimalist Design ✨</span>
           </div>
         </section>
@@ -55,7 +117,7 @@
         <hr class="divider">
 
         <section class="bio-card">
-          <h3>Languages</h3>
+          <h3>LANGUAGES</h3>
           <div class="chip-row">
             <span class="chip">Tulu</span>
             <span class="chip">Kannada</span>
@@ -63,20 +125,66 @@
             <span class="chip">Hindi</span>
           </div>
         </section>
+
+        <hr class="divider">
+
+        <!-- Persona 3 Social Link Stats -->
+        <section class="bio-card">
+          <h3>SOCIAL STATS</h3>
+          <div class="stat-bars">
+            <div class="stat-bar-row">
+              <div class="stat-bar-meta">
+                <span class="stat-bar-name">ACADEMICS</span>
+                <span class="stat-bar-val">72</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill" style="width:72%"></div></div>
+            </div>
+            <div class="stat-bar-row">
+              <div class="stat-bar-meta">
+                <span class="stat-bar-name">CHARM</span>
+                <span class="stat-bar-val">65</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill teal" style="width:65%"></div></div>
+            </div>
+            <div class="stat-bar-row">
+              <div class="stat-bar-meta">
+                <span class="stat-bar-name">COURAGE</span>
+                <span class="stat-bar-val">80</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill red" style="width:80%"></div></div>
+            </div>
+            <div class="stat-bar-row">
+              <div class="stat-bar-meta">
+                <span class="stat-bar-name">CODING SKILL</span>
+                <span class="stat-bar-val">88</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill" style="width:88%"></div></div>
+            </div>
+            <div class="stat-bar-row">
+              <div class="stat-bar-meta">
+                <span class="stat-bar-name">CURIOSITY</span>
+                <span class="stat-bar-val">99</span>
+              </div>
+              <div class="stat-track"><div class="stat-fill teal" style="width:99%"></div></div>
+            </div>
+          </div>
+        </section>
+
       </div>
     </main>
 
+    <!-- Bottom nav -->
     <nav class="bottom-nav">
-  <div class="bottom-pill">
-    <a href="home.html" class="nav-btn home"><span>HOME</span></a>
-    <a href="resume.html" class="nav-btn resume"><span>RESUME</span></a>
-    <a href="biodata.html" class="nav-btn biodata active"><span>BIODATA</span></a>
-  </div>
-</nav>
+      <div class="bottom-pill">
+        <a href="home.html" class="nav-btn">HOME</a>
+        <a href="resume.html" class="nav-btn">RESUME</a>
+        <a href="biodata.html" class="nav-btn active">BIODATA</a>
+      </div>
+    </nav>
 
   </div>
+</div>
 
-  <script src="assets/vendor/jquery.min.js"></script>
-  <script src="assets/js/app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

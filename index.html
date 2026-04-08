@@ -3,26 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ArchPortpoliyo — Welcome</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    /* tiny landing overrides so we don't change UI files */
-    body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#fff}
-    .starter {text-align:center;padding:40px;border-radius:18px;border:2px solid #eee;max-width:820px}
-    .starter h1{font-family:'Montserrat',sans-serif;margin:0 0 8px 0;font-size:40px}
-    .starter p{color:#666;margin-bottom:22px}
-    .btn {background:var(--accent);color:#fff;padding:12px 26px;border-radius:28px;text-decoration:none;font-weight:700;display:inline-block}
-    .small {display:block;margin-top:14px;color:#999;font-size:13px}
-  </style>
+  <title>Portfolio — Welcome</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- Background sigil watermark -->
+<svg style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.04;width:700px;height:700px;pointer-events:none;z-index:0" viewBox="0 0 200 200" fill="none">
+  <circle cx="100" cy="100" r="95" stroke="#4f5ef7" stroke-width="0.8"/>
+  <circle cx="100" cy="100" r="72" stroke="#4f5ef7" stroke-width="0.5"/>
+  <circle cx="100" cy="100" r="50" stroke="#8b5cf6" stroke-width="0.5"/>
+  <polygon points="100,8 190,158 10,158" stroke="#4f5ef7" stroke-width="0.8" fill="none"/>
+  <polygon points="100,192 10,42 190,42" stroke="#4f5ef7" stroke-width="0.8" fill="none"/>
+  <circle cx="100" cy="100" r="6" fill="rgba(79,94,247,0.4)" stroke="#4f5ef7" stroke-width="1"/>
+  <line x1="100" y1="5" x2="100" y2="195" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="5" y1="100" x2="195" y2="100" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="30" y1="30" x2="170" y2="170" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="170" y1="30" x2="30" y2="170" stroke="#4f5ef7" stroke-width="0.3"/>
+</svg>
+
+<div class="welcome-wrap">
   <div class="starter">
-    <h1>Welcome To All!</h1>
-    <p>Click here to view my full Site.</p>
-    <a href="home.html" class="btn">Enter →</a>
-    <span class="small">A small effort towards the future.</span>
+
+    <!-- Moon / Evoker icon -->
+    <svg viewBox="0 0 80 80" fill="none" style="width:64px;height:64px;margin:0 auto 24px;display:block">
+      <circle cx="40" cy="40" r="38" stroke="#4f5ef7" stroke-width="1"/>
+      <circle cx="40" cy="40" r="28" stroke="rgba(79,94,247,0.4)" stroke-width="0.8"/>
+      <path d="M50 28a16 16 0 1 1-16 24 12 12 0 1 0 16-24z" fill="rgba(79,94,247,0.25)" stroke="#4f5ef7" stroke-width="1.2"/>
+      <!-- small star dots -->
+      <circle cx="20" cy="40" r="1.5" fill="#4f5ef7"/>
+      <circle cx="60" cy="40" r="1.5" fill="#4f5ef7"/>
+      <circle cx="40" cy="20" r="1.5" fill="#4f5ef7"/>
+      <circle cx="40" cy="60" r="1.5" fill="#4f5ef7"/>
+    </svg>
+
+    <h1>WELCOME <span>TO ALL</span></h1>
+    <p>Click here to view the full portfolio site</p>
+
+    <a href="home.html" class="btn-enter">
+      <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;stroke:#070b18;stroke-width:2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      ENTER
+    </a>
+
+    <span class="small">A small effort towards the future</span>
+
+    <!-- corner ticks -->
+    <svg style="position:absolute;top:8px;left:8px;width:14px;height:14px" viewBox="0 0 14 14" fill="none">
+      <path d="M1 13V1h12" stroke="#4f5ef7" stroke-width="1.5"/>
+    </svg>
+    <svg style="position:absolute;bottom:8px;right:8px;width:14px;height:14px" viewBox="0 0 14 14" fill="none">
+      <path d="M13 1v12H1" stroke="#4f5ef7" stroke-width="1.5"/>
+    </svg>
   </div>
+</div>
+
 </body>
 </html>

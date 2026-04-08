@@ -3,30 +3,54 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ArchPortpoliyo — Home</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Portfolio — Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="site-root">
- <div class="page-wrap biodata-page">
+<body>
+
+<!-- Diagonal slash bg sigil -->
+<svg style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.032;width:860px;height:860px;pointer-events:none;z-index:0" viewBox="0 0 200 200" fill="none">
+  <circle cx="100" cy="100" r="95" stroke="#4f5ef7" stroke-width="0.7"/>
+  <circle cx="100" cy="100" r="70" stroke="#4f5ef7" stroke-width="0.5"/>
+  <polygon points="100,8 190,158 10,158" stroke="#4f5ef7" stroke-width="0.7" fill="none"/>
+  <polygon points="100,192 10,42 190,42" stroke="#4f5ef7" stroke-width="0.7" fill="none"/>
+  <circle cx="100" cy="100" r="5" fill="rgba(79,94,247,0.35)" stroke="#4f5ef7" stroke-width="1"/>
+  <line x1="100" y1="5" x2="100" y2="195" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="5" y1="100" x2="195" y2="100" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="30" y1="30" x2="170" y2="170" stroke="#4f5ef7" stroke-width="0.3"/>
+  <line x1="170" y1="30" x2="30" y2="170" stroke="#4f5ef7" stroke-width="0.3"/>
+</svg>
+
+<div class="page-wrap">
+  <div class="page-inner">
+
+    <!-- Header -->
     <header class="top-row">
       <div class="crafted">
-        <img src="images/pen.png" alt="pen icon" class="crafted-icon">
+        <svg viewBox="0 0 16 16" fill="none" style="width:14px;height:14px;stroke:#4f5ef7;stroke-width:1.5">
+          <path d="M8 1L2 4v4c0 3.5 2.5 6.5 6 7.5C12 14.5 14 11.5 14 8V4L8 1z"/>
+        </svg>
         CRAFTED BY <strong>VINYAS</strong>
       </div>
       <div class="ajiet-btn">AJIET</div>
     </header>
 
+    <!-- Hero -->
     <main class="hero-grid">
       <div class="hero-left">
-        <h2 class="greeting">HI, I’M <span class="name">VINYAS</span></h2>
+        <div class="role-tag">APP DEVELOPER</div>
+        <h2 class="greeting">HI, I'M<br><span class="name">VINYAS</span></h2>
 
-        <div class="role-pill">APP DEVELOPER</div>
+        <div class="role-pill">&#9679;&nbsp; FULL-STACK · SECURITY · MOBILE</div>
 
         <div class="hero-row">
-          <div class="avatar-wrap">
-            <img src="images/HProfile.jpg" alt="Vinyas" class="hero-avatar">
+          <!-- Avatar -->
+          <img src="images/HProfile.jpeg" alt="Vinyas" class="hero-avatar"
+            onerror="this.style.display='none';document.getElementById('avatar-ph').style.display='flex'">
+          <div id="avatar-ph" class="avatar-placeholder" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" style="width:52px;height:52px;stroke:#4f5ef7;stroke-width:0.8">
+              <circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/>
+            </svg>
           </div>
 
           <div class="mono-wrap">
@@ -36,26 +60,87 @@
               love.
             </p>
           </div>
+        </div>
 
-          <div class="arrow-wrap">
-            <img src="images/arrow.png" alt="arrow" class="hero-arrow">
+        <!-- Stat counters -->
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">4+</div>
+            <div class="stat-label">PROJECTS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">13+</div>
+            <div class="stat-label">SKILLS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">4</div>
+            <div class="stat-label">CERTS</div>
+          </div>
+          <div class="stat-box" style="border-left-color:var(--red);flex:1.4">
+            <a href="contact.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;height:100%">
+              <div>
+                <div class="stat-num" style="font-size:18px;color:var(--moon)">GET IN TOUCH</div>
+                <div class="stat-label">CONTACT ME ▶</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
 
-      <aside class="hero-right" aria-hidden="true"></aside>
-    </main>
-     <nav class="bottom-nav" role="navigation" aria-label="Main">
-    <div class="bottom-pill">
-      <a href="home.html" class="nav-btn home active"><span>HOME</span></a>
-      <a href="resume.html" class="nav-btn resume"><span>RESUME</span></a>
-      <a href="biodata.html" class="nav-btn biodata"><span>BIODATA</span></a>
-    </div>
-  </nav>
-  </div> <!-- end .page-wrap -->
- 
+      <!-- Right decorative panel — P3R SEES evoker sigil -->
+      <aside class="hero-right" aria-hidden="true">
+        <svg viewBox="0 0 280 280" fill="none" style="width:100%;height:100%;opacity:0.55">
+          <!-- outer ring -->
+          <circle cx="140" cy="140" r="132" stroke="#4f5ef7" stroke-width="1.2"/>
+          <!-- inner rings -->
+          <circle cx="140" cy="140" r="100" stroke="rgba(79,94,247,0.5)" stroke-width="0.8"/>
+          <circle cx="140" cy="140" r="68" stroke="rgba(139,92,246,0.6)" stroke-width="0.8"/>
+          <circle cx="140" cy="140" r="38" stroke="rgba(79,94,247,0.6)" stroke-width="1"/>
+          <!-- Star of David / P3 triangles -->
+          <polygon points="140,12 260,208 20,208" stroke="#4f5ef7" stroke-width="1.2" fill="rgba(79,94,247,0.04)"/>
+          <polygon points="140,268 20,72 260,72" stroke="#8b5cf6" stroke-width="1" fill="rgba(139,92,246,0.04)"/>
+          <!-- Axis lines -->
+          <line x1="140" y1="8" x2="140" y2="272" stroke="rgba(79,94,247,0.35)" stroke-width="0.6"/>
+          <line x1="8" y1="140" x2="272" y2="140" stroke="rgba(79,94,247,0.35)" stroke-width="0.6"/>
+          <line x1="41" y1="41" x2="239" y2="239" stroke="rgba(79,94,247,0.25)" stroke-width="0.5"/>
+          <line x1="239" y1="41" x2="41" y2="239" stroke="rgba(79,94,247,0.25)" stroke-width="0.5"/>
+          <!-- Center moon -->
+          <circle cx="140" cy="140" r="10" fill="rgba(79,94,247,0.2)" stroke="#4f5ef7" stroke-width="1.5"/>
+          <path d="M146 134a10 10 0 1 1-12 12 7 7 0 1 0 12-12z" fill="rgba(79,94,247,0.5)"/>
+          <!-- corner dots -->
+          <circle cx="140" cy="8"   r="3" fill="#4f5ef7"/>
+          <circle cx="140" cy="272" r="3" fill="#4f5ef7"/>
+          <circle cx="8"   cy="140" r="3" fill="#4f5ef7"/>
+          <circle cx="272" cy="140" r="3" fill="#4f5ef7"/>
+          <!-- tick marks on outer ring every 30deg -->
+          <line x1="140" y1="10" x2="140" y2="20" stroke="#4f5ef7" stroke-width="1.5"/>
+          <line x1="140" y1="260" x2="140" y2="270" stroke="#4f5ef7" stroke-width="1.5"/>
+          <line x1="10" y1="140" x2="20" y2="140" stroke="#4f5ef7" stroke-width="1.5"/>
+          <line x1="260" y1="140" x2="270" y2="140" stroke="#4f5ef7" stroke-width="1.5"/>
+        </svg>
 
-  <script src="assets/vendor/jquery.min.js"></script>
-  <script src="assets/js/app.js"></script>
+        <!-- Floating P3 text labels -->
+        <div style="position:absolute;top:18px;right:0;text-align:right;line-height:2.2">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(79,94,247,0.5)">SEES MEMBER</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(79,94,247,0.35)">PORT ISLAND</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(79,94,247,0.25)">VELVET ROOM</div>
+        </div>
+        <div style="position:absolute;bottom:24px;right:0;font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:6px;color:rgba(79,94,247,0.1);line-height:1">PERSONA</div>
+      </aside>
+    </main>
+
+    <!-- Bottom nav -->
+    <nav class="bottom-nav">
+      <div class="bottom-pill">
+        <a href="home.html" class="nav-btn active">HOME</a>
+        <a href="resume.html" class="nav-btn">RESUME</a>
+        <a href="biodata.html" class="nav-btn">BIODATA</a>
+      </div>
+    </nav>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
